@@ -14,7 +14,10 @@ const ContactSection = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      toast({ title: "Message sent!", description: "We'll get back to you soon." });
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you soon.",
+      });
       (e.target as HTMLFormElement).reset();
     }, 1000);
   };
@@ -28,11 +31,15 @@ const ContactSection = () => {
               Get in <span className="text-gradient">Touch</span>
             </h2>
             <p className="text-muted-foreground">
-              Interested in collaborating or learning more? We'd love to hear from you.
+              Interested in collaborating or learning more? We'd love to hear
+              from you.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="glass rounded-xl p-8 space-y-5">
+          <form
+            onSubmit={handleSubmit}
+            className="glass rounded-xl p-8 space-y-5"
+          >
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label className="text-sm font-medium mb-2 block">Name</label>
@@ -72,9 +79,16 @@ const ContactSection = () => {
 
           <div className="flex justify-center gap-6 mt-10">
             {[
-              { icon: Mail, label: "Email", href: "mailto:hello@ecowizlab.com" },
-              { icon: Twitter, label: "Twitter", href: "#" },
-              { icon: Github, label: "GitHub", href: "#" },
+              {
+                icon: Mail,
+                label: "Email",
+                href: "mailto:operations@ecowizlab.in",
+              },
+              {
+                icon: Github,
+                label: "GitHub",
+                href: "https://github.com/EcoWizLab",
+              },
             ].map(({ icon: Icon, label, href }) => (
               <a
                 key={label}

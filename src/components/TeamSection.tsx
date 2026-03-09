@@ -2,12 +2,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Github, Twitter, Linkedin } from "lucide-react";
 
 const team = [
-  { name: "Alex Chen", role: "Founder & CEO", initials: "AC" },
-  { name: "Maya Patel", role: "Head of ZK Research", initials: "MP" },
-  { name: "Liam Okafor", role: "Protocol Engineer", initials: "LO" },
-  { name: "Sofia Ruiz", role: "Security Researcher", initials: "SR" },
-  { name: "Jin Tanaka", role: "Consensus Engineer", initials: "JT" },
-  { name: "Ava Lindström", role: "Cryptographer", initials: "AL" },
+  { name: "Anmol Goyal", role: "Founder & CEO", initials: "AG" },
+  { name: "Ryoma Echizen", role: "Head of ZK Research", initials: "RE" },
 ];
 
 const TeamSection = () => {
@@ -20,7 +16,8 @@ const TeamSection = () => {
             Our <span className="text-gradient">Team</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            World-class researchers and engineers pushing the boundaries of Ethereum and ZK technology.
+            World-class researchers and engineers pushing the boundaries of
+            Ethereum and ZK technology.
           </p>
         </div>
 
@@ -36,8 +33,12 @@ const TeamSection = () => {
                   {member.initials}
                 </AvatarFallback>
               </Avatar>
-              <h3 className="font-display font-semibold text-lg">{member.name}</h3>
-              <p className="text-sm text-muted-foreground mb-4">{member.role}</p>
+              <h3 className="font-display font-semibold text-lg">
+                {member.name}
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                {member.role}
+              </p>
               <div className="flex justify-center gap-3">
                 {[Twitter, Github, Linkedin].map((Icon, j) => (
                   <a

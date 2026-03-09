@@ -3,19 +3,27 @@ import { useEffect, useRef, useState } from "react";
 const stats = [
   { value: 12, suffix: "+", label: "Projects Shipped" },
   { value: 25, suffix: "+", label: "Research Papers" },
-  { value: 8, suffix: "", label: "Team Members" },
+  { value: 2, suffix: "", label: "Team Members" },
   { value: 99, suffix: "%", label: "Uptime Guarantee" },
 ];
 
-const AnimatedCounter = ({ target, suffix }: { target: number; suffix: string }) => {
+const AnimatedCounter = ({
+  target,
+  suffix,
+}: {
+  target: number;
+  suffix: string;
+}) => {
   const [count, setCount] = useState(0);
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.5 }
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.5 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -37,7 +45,8 @@ const AnimatedCounter = ({ target, suffix }: { target: number; suffix: string })
   return (
     <div ref={ref} className="text-center">
       <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">
-        {count}{suffix}
+        {count}
+        {suffix}
       </div>
     </div>
   );
@@ -50,7 +59,8 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-            Advancing the <span className="text-gradient">Ethereum Ecosystem</span>
+            Advancing the{" "}
+            <span className="text-gradient">Ethereum Ecosystem</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             EcoWizLab is at the forefront of Ethereum client optimization and
@@ -62,7 +72,10 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat) => (
-            <div key={stat.label} className="glass rounded-xl p-6 text-center hover:glow-primary transition-shadow duration-300">
+            <div
+              key={stat.label}
+              className="glass rounded-xl p-6 text-center hover:glow-primary transition-shadow duration-300"
+            >
               <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               <p className="text-sm text-muted-foreground mt-2">{stat.label}</p>
             </div>
